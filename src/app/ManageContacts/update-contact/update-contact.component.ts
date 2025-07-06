@@ -33,7 +33,14 @@ export class UpdateContactComponent {
   }
 
   submit() {
-    this.api.update(this.contact).subscribe();
+    this.api.update(this.contact).subscribe({
+      next: (response:any) => {
+        alert(response.message);
+      },
+      error: (error) => {
+        alert(error.error);
+      }
+    });
   }
 
   goBack() {

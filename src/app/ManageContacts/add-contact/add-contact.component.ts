@@ -20,10 +20,16 @@ export class AddContactComponent {
   constructor(private api: ContactService, private router: Router) { }
 
   submit() {
-    this.api.add(this.contact).subscribe(() => {
+  this.api.add(this.contact).subscribe({
+    next: (response:any) => {
+      alert(response.message);
       this.contact = { name: '', phoneNumber: '', email: '' };
       this.contactAdded.emit();
-    });
+    },
+    error: (error) => {
+      alert(error.error);
+    }
+  });
   }
   
   goBack() {

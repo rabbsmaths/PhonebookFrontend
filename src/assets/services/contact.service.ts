@@ -29,9 +29,8 @@ export class ContactService {
   }
 
   delete(phoneNumber: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${phoneNumber}`, {
-    responseType: 'text' as 'json'
-  });
+    return this.http.delete<void>(`${this.apiUrl}/${phoneNumber}`);
   }
 
+  
 }

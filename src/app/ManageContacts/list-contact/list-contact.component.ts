@@ -35,9 +35,17 @@ export class ListContactComponent {
     this.api.search(this.searchTerm).subscribe((res) => (this.contacts = res));
   }
 
-  delete(phone: string) {
-    this.api.delete(phone).subscribe(() => this.load());
-  }
+delete(phone: string) {
+  this.api.delete(phone).subscribe({
+    next: (response:any) => {
+      alert(response.message); 
+      this.load(); 
+    },
+    error: (error) => {
+      alert(error.error); 
+    }
+  });
+}
 
   goToUpdate(phoneNumber: string) {
     this.router.navigate(['/update', phoneNumber]);

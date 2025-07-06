@@ -1,7 +1,9 @@
 <div class="mb-3 search">
-  <input [(ngModel)]="searchTerm" class="form-control" placeholder="Search contacts" (input)="search()">
+  <input [(ngModel)]="searchTerm" class="form-control search-input" placeholder="Search contacts" (input)="search()">
 </div>
+
 <ul class="list-group">
+  <ng-container *ngIf="contacts.length > 0">
   <li *ngFor="let contact of contacts" class="list-group-item">
     <div class="row phone-record">
       <div class="col-md-2"><strong>{{ contact.name }}</strong><br></div>
@@ -15,4 +17,8 @@
       </div>
     </div>
   </li>
+  </ng-container>
+  <ng-container *ngIf="contacts.length == 0">
+    <li class="list-group-item">No records found.</li>
+  </ng-container>
 </ul>
