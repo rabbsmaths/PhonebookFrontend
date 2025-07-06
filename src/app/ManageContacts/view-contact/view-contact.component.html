@@ -1,6 +1,13 @@
-    <h3>Contact Details</h3>
-    <div *ngIf="contact">
-      <p><strong>Name:</strong> {{ contact.name }}</p>
-      <p><strong>Phone:</strong> {{ contact.phoneNumber }}</p>
-      <p><strong>Email:</strong> {{ contact.email }}</p>
-    </div>
+ <div class="container mt-4" style="max-width: 500px;">
+  <h3 class="mb-4">Contact Details</h3>
+
+  <div *ngIf="contact" class="card p-3 shadow-sm">
+    <p><strong>Name:</strong> {{ contact.name }}</p>
+    <p><strong>Phone:</strong> {{ contact.phoneNumber }}</p>
+    <p><strong>Email:</strong> {{ contact.email || 'N/A' }}</p>
+  </div>
+
+  <button class="btn btn-secondary mt-3" (click)="goBack()">
+    ← Back 
+  </button>
+</div>

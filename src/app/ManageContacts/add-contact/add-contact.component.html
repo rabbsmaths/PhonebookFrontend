@@ -1,7 +1,40 @@
-    <h3>Add Contact</h3>
-    <form (ngSubmit)="submit()">
-      <input [(ngModel)]="contact.name" name="name" placeholder="Name" required>
-      <input [(ngModel)]="contact.phoneNumber" name="phoneNumber" placeholder="Phone Number" required>
-      <input [(ngModel)]="contact.email" name="email" placeholder="Email">
-      <button type="submit">Add</button>
-    </form>
+<div class="container mt-4" style="max-width: 500px;">
+  <h3 class="mb-4">Add Contact</h3>
+
+  <form (ngSubmit)="submit()" #contactForm="ngForm" novalidate>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name *</label>
+      <input id="name" type="text" class="form-control" [(ngModel)]="contact.name" name="name" placeholder="Enter name"
+        required #name="ngModel" />
+      <div *ngIf="name.invalid && name.touched" class="text-danger">
+        Name is required.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="phoneNumber" class="form-label">Phone Number *</label>
+      <input id="phoneNumber" type="tel" class="form-control" [(ngModel)]="contact.phoneNumber" name="phoneNumber"
+        placeholder="Enter phone number" required #phone="ngModel" />
+      <div *ngIf="phone.invalid && phone.touched" class="text-danger">
+        Phone number is required.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input id="email" type="email" class="form-control" [(ngModel)]="contact.email" name="email"
+        placeholder="Enter email" #email="ngModel" />
+      <div *ngIf="email.invalid && email.touched" class="text-danger">
+        Please enter a valid email.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary me-2" [disabled]="contactForm.invalid">
+      Add
+    </button>
+
+    <button type="button" class="btn btn-secondary" (click)="goBack()">
+     ← Back
+    </button>
+  </form>
+</div>

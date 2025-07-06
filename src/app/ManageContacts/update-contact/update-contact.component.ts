@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Contact } from 'src/assets/interfaces/contact';
 import { ContactService } from 'src/assets/services/contact.service';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-contact',
@@ -16,7 +16,7 @@ export class UpdateContactComponent {
 
   contact!: Contact;
 
-  constructor(private route: ActivatedRoute, private api: ContactService) { }
+  constructor(private route: ActivatedRoute, private api: ContactService, private router: Router) { }
 
   ngOnInit() {
     const phone = this.route.snapshot.paramMap.get('phoneNumber');
@@ -36,4 +36,7 @@ export class UpdateContactComponent {
     this.api.update(this.contact).subscribe();
   }
 
+  goBack() {
+    this.router.navigate(['/']);
+  }
 }
