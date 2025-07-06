@@ -1,0 +1,7 @@
+    <h3>Add Contact</h3>
+    <form (ngSubmit)="submit()">
+      <input [(ngModel)]="contact.name" name="name" placeholder="Name" required>
+      <input [(ngModel)]="contact.phoneNumber" name="phoneNumber" placeholder="Phone Number" required>
+      <input [(ngModel)]="contact.email" name="email" placeholder="Email">
+      <button type="submit">Add</button>
+    </form>

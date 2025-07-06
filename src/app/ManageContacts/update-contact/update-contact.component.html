@@ -1,0 +1,7 @@
+    <h3>Update Contact</h3>
+    <form *ngIf="contact" (ngSubmit)="submit()">
+      <input [(ngModel)]="contact.name" name="name" placeholder="Name" required>
+      <input [(ngModel)]="contact.phoneNumber" name="phoneNumber" placeholder="Phone Number" required readonly>
+      <input [(ngModel)]="contact.email" name="email" placeholder="Email">
+      <button type="submit">Update</button>
+    </form>

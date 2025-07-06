@@ -8,7 +8,7 @@ import { Contact } from '../interfaces/contact';
 })
 export class ContactService {
 
-  private apiUrl = 'https://localhost:5001/api/contact';
+  private apiUrl = 'https://localhost:7116/api/contact';
 
   constructor(private http: HttpClient) {}
 
@@ -29,6 +29,9 @@ export class ContactService {
   }
 
   delete(phoneNumber: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${phoneNumber}`);
+    return this.http.delete<void>(`${this.apiUrl}/${phoneNumber}`, {
+    responseType: 'text' as 'json'
+  });
   }
+
 }
