@@ -2,9 +2,9 @@
   <h3 class="mb-4">Contact Details</h3>
 
   <div *ngIf="contact" class="card p-3 shadow-sm">
-    <p><strong>Name:</strong> {{ contact.name }}</p>
-    <p><strong>Phone:</strong> {{ contact.phoneNumber }}</p>
-    <p><strong>Email:</strong> {{ contact.email || 'N/A' }}</p>
+    <p><i class="bi bi-person-rolodex"></i>&nbsp; {{ contact.name }}</p>
+    <p><i class="bi bi-telephone"></i>&nbsp; {{ contact.phoneNumber }}</p>
+    <p><i class="bi bi-envelope"></i>&nbsp; {{ contact.email || 'N/A' }}</p>
   </div>
 
   <button class="btn btn-secondary mt-3" (click)="goBack()">

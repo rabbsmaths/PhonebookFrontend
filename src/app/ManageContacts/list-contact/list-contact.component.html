@@ -6,9 +6,9 @@
   <ng-container *ngIf="contacts.length > 0">
   <li *ngFor="let contact of contacts" class="list-group-item">
     <div class="row phone-record">
-      <div class="col-md-2"><strong>{{ contact.name }}</strong><br></div>
-      <div class="col-md-2"> <small>{{ contact.phoneNumber }}</small></div>
-      <div class="col-md-2"> <small>{{ contact.email }}</small></div>
+      <div class="col-md-2"><i class="bi bi-person-rolodex"></i>&nbsp;<strong>{{ contact.name }}</strong><br></div>
+      <div class="col-md-2"><i class="bi bi-telephone"></i>&nbsp;<small>{{ contact.phoneNumber }}</small></div>
+      <div class="col-md-2"><i class="bi bi-envelope"></i>&nbsp;<small>{{ contact.email }}</small></div>
       <div class="col-md-2"><button class="btn btn-sm btn-info me-2"
           (click)="goToView(contact.phoneNumber)">View</button></div>
       <div class="col-md-2"><button class="btn btn-sm btn-warning me-2"
@@ -19,6 +19,6 @@
   </li>
   </ng-container>
   <ng-container *ngIf="contacts.length == 0">
-    <li class="list-group-item">No records found.</li>
+    <li class="list-group-item">Contact not found.</li>
   </ng-container>
 </ul>
