@@ -1,9 +1,18 @@
-    <input [(ngModel)]="searchTerm" placeholder="Search contacts" (input)="search()">
-    <ul>
-      <li *ngFor="let contact of contacts">
-        {{ contact.name }} - {{ contact.phoneNumber }}
-        <button (click)="goToUpdate(contact.phoneNumber)">Edit</button>
-        <button (click)="goToView(contact.phoneNumber)">View</button>
-        <button (click)="delete(contact.phoneNumber)">Delete</button>
-      </li>
-    </ul>
+<div class="mb-3 search">
+  <input [(ngModel)]="searchTerm" class="form-control" placeholder="Search contacts" (input)="search()">
+</div>
+<ul class="list-group">
+  <li *ngFor="let contact of contacts" class="list-group-item">
+    <div class="row phone-record">
+      <div class="col-md-2"><strong>{{ contact.name }}</strong><br></div>
+      <div class="col-md-2"> <small>{{ contact.phoneNumber }}</small></div>
+      <div class="col-md-2"> <small>{{ contact.email }}</small></div>
+      <div class="col-md-2"><button class="btn btn-sm btn-info me-2"
+          (click)="goToView(contact.phoneNumber)">View</button></div>
+      <div class="col-md-2"><button class="btn btn-sm btn-warning me-2"
+          (click)="goToUpdate(contact.phoneNumber)">Edit</button></div>
+      <div class="col-md-2"><button class="btn btn-sm btn-danger" (click)="delete(contact.phoneNumber)">Delete</button>
+      </div>
+    </div>
+  </li>
+</ul>

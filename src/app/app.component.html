@@ -1,7 +1,28 @@
-<nav>
-    <a routerLink="/">Home</a>
-    <a routerLink="/add">Add</a>
-    <a routerLink="/update">Update</a>
-    <a routerLink="/view">View</a>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">Phonebook</a>
+
+    <!-- Custom toggler button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <!-- Use 3 dots instead of hamburger -->
+      <span style="font-size: 1.5rem;">&#8942;</span> 
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" routerLink="/">Home</a>
+        <a class="nav-link" routerLink="/add">Add Contact</a>
+      </div>
+    </div>
+  </div>
 </nav>
 <router-outlet></router-outlet>

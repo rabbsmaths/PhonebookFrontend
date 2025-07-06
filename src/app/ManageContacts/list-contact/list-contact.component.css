@@ -1,0 +1,10 @@
+.list-group,.search{
+  margin-left: 10%;
+  margin-right:10%;
+}
+
+.list-group{
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 80vh;
+}
